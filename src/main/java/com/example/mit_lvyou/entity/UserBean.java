@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @TableName("user_table")
-public class User{
+public class UserBean {
     /**
      * 用户id
      **/

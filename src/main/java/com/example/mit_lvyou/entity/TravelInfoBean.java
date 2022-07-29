@@ -10,7 +10,7 @@ import lombok.Data;
  */
 @Data
 @TableName("travel_table")
-public class TravelInfo {
+public class TravelInfoBean {
     /**
      * 出发地
      **/
