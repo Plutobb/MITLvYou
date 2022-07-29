@@ -68,7 +68,7 @@ public class MatchService {
                 }
             });
             //按照相似度排序
-            matchResult = allTravelInfo.stream().sorted(Comparator.comparing(MatchResponseDTO::getSimVal)).collect(Collectors.toList());
+            matchResult = allTravelInfo.stream().filter(travelInfos-> !Objects.equals(travelInfos.getUserId(), travelInfo.getUserId())).sorted(Comparator.comparing(MatchResponseDTO::getSimVal)).collect(Collectors.toList());
             resultDTO.setCode(200);
             resultDTO.setMessage("获取匹配信息成功!");
             resultDTO.setData(matchResult);

@@ -18,6 +18,6 @@ public interface TravelMapper extends BaseMapper<TravelInfoBean> {
     @Select("select * from travel_table")
     List<TravelInfoBean> selectAll();
 
-    @Select("select * from travel_table join user_table on travel_table.userid = user_table.user_id")
+    @Select("select * from travel_table join user_table on travel_table.user_id = user_table.user_id")
     List<MatchResponseDTO> selectAllUserAndTravelInfo();
 }

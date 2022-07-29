@@ -13,7 +13,7 @@ import lombok.Data;
 @TableName("travel_table")
 public class TravelInfoBean {
     /**
-     * 出发地
+     * 旅行id
      **/
     @TableId(type = IdType.AUTO)
     private String travelId;
