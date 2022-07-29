@@ -1,21 +1,41 @@
-package com.example.mit_lvyou.entity;
+package com.example.mit_lvyou.entity.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 /**
  * @author hongbaozhang
- * @date 2022/7/28 17:23
+ * @date 2022/7/29 14:28
  */
 @Data
-@TableName("travel_table")
-public class TravelInfoBean {
+public class MatchResponseDTO {
+    /**
+     * 用户id
+     **/
+    private Integer userId;
+    /**
+     * 用户名
+     **/
+    private String phoneNum;
+    /**
+     * 昵称
+     **/
+    private String nickname;
+    /**
+     * 性别 0 女 1 男
+     **/
+    private Integer sex;
+    /**
+     * 年龄
+     **/
+    private Integer age;
+    /**
+     * 性格
+     **/
+    private String userCharacter;
     /**
      * 出发地
      **/
-    @TableId(type = IdType.AUTO)
     private String travelId;
     /**
      * 出发地
@@ -38,11 +58,11 @@ public class TravelInfoBean {
      **/
     private Integer acceptAmount;
     /**
-     * 兴趣偏好标签
+     * 目的地兴趣偏好标签
      **/
     private String tags;
     /**
-     * 旅行信息的用户Id
+     * 匹配度
      **/
-    private Integer userId;
+    private double simVal;
 }
