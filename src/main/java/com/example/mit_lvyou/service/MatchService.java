@@ -31,7 +31,7 @@ public class MatchService {
         //首先对旅行数据进行存储
         if (saveTravelInfo(travelInfo) != null){
             //插入成功进行匹配操作
-            List<MatchResponseDTO> allTravelInfo = travelMapper.selectAllUserAndTravelInfo();
+            List<MatchResponseDTO> allTravelInfo = travelMapper.selectAllUserAndTravelInfoByToArea(travelInfo);
             Set<String> userTag =new HashSet<>(Arrays.asList(travelInfo.getTags().split(",")));
             allTravelInfo.forEach(travel -> {
                 if (!Objects.equals(travel.getUserId(), travelInfo.getUserId())){
@@ -70,7 +70,11 @@ public class MatchService {
             //按照相似度排序
             matchResult = allTravelInfo.stream().filter(travelInfos-> !Objects.equals(travelInfos.getUserId(), travelInfo.getUserId())).sorted(Comparator.comparing(MatchResponseDTO::getSimVal)).collect(Collectors.toList());
             resultDTO.setCode(200);
-            resultDTO.setMessage("获取匹配信息成功!");
+            if (matchResult.size() == 0){
+                resultDTO.setMessage("没有匹配到合适的用户");
+            }else {
+                resultDTO.setMessage("获取匹配信息成功!");
+            }
             resultDTO.setData(matchResult);
         }else {
             resultDTO.setCode(500);
