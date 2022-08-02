@@ -9,4 +9,7 @@ spring:
 logging:
   pattern:
     console: "[%thread] %-5level %logger{36} - %msg%n"
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

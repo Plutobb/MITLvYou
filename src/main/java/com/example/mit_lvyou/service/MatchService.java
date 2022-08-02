@@ -85,11 +85,10 @@ public class MatchService {
     }
 
     public TravelInfoBean saveTravelInfo(TravelInfoBean travelInfo){
-        if (travelMapper.insert(travelInfo) > 0){
-            return travelInfo;
-        }else {
-            System.out.println("插入旅行信息失败");
-            return null;
+        HashSet<TravelInfoBean> set = new HashSet<>(travelMapper.selectAll());
+        if (!set.contains(travelInfo)){
+            travelMapper.insert(travelInfo);
         }
+        return travelInfo;
     }
 }

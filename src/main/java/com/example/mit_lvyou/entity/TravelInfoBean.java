@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.util.Objects;
+
 /**
  * @author hongbaozhang
  * @date 2022/7/28 17:23
@@ -45,4 +47,17 @@ public class TravelInfoBean {
      * 旅行信息的用户Id
      **/
     private Integer userId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TravelInfoBean that = (TravelInfoBean) o;
+        return Objects.equals(fromArea, that.fromArea) && Objects.equals(toArea, that.toArea) && Objects.equals(time, that.time) && Objects.equals(numPeople, that.numPeople) && Objects.equals(acceptAmount, that.acceptAmount) && Objects.equals(tags, that.tags) && Objects.equals(userId, that.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fromArea, toArea, time, numPeople, acceptAmount, tags, userId);
+    }
 }
