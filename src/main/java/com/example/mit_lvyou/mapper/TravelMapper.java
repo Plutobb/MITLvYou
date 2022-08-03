@@ -23,4 +23,5 @@ public interface TravelMapper extends BaseMapper<TravelInfoBean> {
 
     @Select("select * from travel_table join user_table on travel_table.user_id = user_table.user_id where to_area = #{toArea}")
     List<MatchResponseDTO> selectAllUserAndTravelInfoByToArea(TravelInfoBean travelInfoBean);
+
 }

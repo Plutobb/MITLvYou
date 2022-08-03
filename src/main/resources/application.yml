@@ -5,11 +5,16 @@ spring:
     url: jdbc:mysql://localhost/test?serverTimezone=GMT%2B8&characterEncoding=UTF-8&allowMultiQueries=true
     username: root
     password: root
-#????
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password:
+
 logging:
   pattern:
     console: "[%thread] %-5level %logger{36} - %msg%n"
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
 
